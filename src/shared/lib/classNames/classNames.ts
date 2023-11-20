@@ -7,7 +7,9 @@ interface ClassNames {
   additional?: string[]
 }
 
-export const classNames = ({ cls, mods = {}, additional = [] }: ClassNames): string => [cls, ...additional, ...Object.keys(mods).filter(key => mods[key])].join(' ');
+export const classNames = ({ cls, mods = {}, additional = [] }: ClassNames): string => [cls, ...additional.filter(Boolean), ...Object.keys(mods).filter(key => mods[key])].join(' ');
+
+
 
 
 
