@@ -14,8 +14,6 @@ export function Sidebar(props: PropsWithChildren<SidebarProps>) {
   const [collapsed, setCollapsed] = useState(false)
 
   const toggleCollapsed = () => setCollapsed(prev => !prev);
-  console.log(collapsed)
-  console.log(classNames({ cls: cls.Sidebar, mods: { [cls.collapsed]: collapsed }, additional: [className] }))
 
   return (
     <div
