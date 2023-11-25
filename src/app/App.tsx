@@ -7,8 +7,7 @@ import { Navbar } from 'widgets/Navbar'
 
 import { classNames } from "shared/lib/classNames"
 import { Sidebar } from 'widgets/Sidebar'
-
-
+import { Suspense } from 'react'
 
 
 
@@ -19,12 +18,14 @@ const App = () => {
 
 
   return <div className={classNames({ cls: 'app', additional: [theme] })}>
-    <Navbar className={theme} />
-    <div className="content-page">
-      <Sidebar />
-      <AppRouter />
+    <Suspense fallback="">
+      <Navbar className={theme} />
+      <div className="content-page">
+        <Sidebar />
+        <AppRouter />
 
-    </div>
+      </div>
+    </Suspense>
   </div>
 }
 
