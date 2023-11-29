@@ -1,3 +1,3 @@
-import { routeConfig } from "./routeConfig";
+import { routeConfig } from './routeConfig'
 
 export { routeConfig }
