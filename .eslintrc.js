@@ -33,6 +33,7 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-unused-vars": 'warn',
         "no-tabs": 0,
         "react/prop-types": 0,
         "react/jsx-indent": [2, 2],
@@ -42,7 +43,6 @@ module.exports = {
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", '.tsx'] }],
         "import/no-unresolved": 'off',
         "import/prefer-default-export": 'off',
-        "no-unused-vars": 'warn',
 
     }
 };
