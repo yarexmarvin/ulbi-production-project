@@ -4,8 +4,9 @@ module.exports = {
         "es2021": true
     },
     "extends": [
+        "plugin:react/recommended",
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:i18next/recommended"
     ],
     "overrides": [
         {
@@ -25,7 +26,9 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint",
+        "i18next"
     ],
     "rules": {
         "@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -43,6 +46,6 @@ module.exports = {
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", '.tsx'] }],
         "import/no-unresolved": 'off',
         "import/prefer-default-export": 'off',
-
+        "i18next/no-literal-string": ['error', { markupOnly: true }]
     }
 };

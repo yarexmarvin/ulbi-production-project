@@ -1,7 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import cls from './ThemeSwitcher.module.scss'
 import { classNames } from 'shared/lib/classNames'
 
 import LightIcon from 'shared/assets/icons/theme-light.svg'
@@ -17,7 +16,7 @@ export function ThemeSwitcher (props: PropsWithChildren<ThemeSwitcherProps>) {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <Button className={classNames({ cls: cls.ThemeSwitcher, additional: [className] })} onClick={toggleTheme}
+    <Button className={classNames({ cls: '', additional: [className] })} onClick={toggleTheme}
       theme={ThemeButton.CLEAR}
 		>
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
