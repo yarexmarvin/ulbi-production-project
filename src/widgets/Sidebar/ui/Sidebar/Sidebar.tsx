@@ -21,9 +21,10 @@ export function Sidebar (props: PropsWithChildren<SidebarProps>) {
 
   return (
     <div
+      data-testid="sidebar"
       className={classNames({ cls: cls.Sidebar, mods: { [cls.collapsed]: collapsed }, additional: [className] })}
     >
-      <button onClick={toggleCollapsed}>{collapsed ? t('Раскрыть') : t('Скрыть')}</button>
+      <button data-testid="sidebar-toggle" onClick={toggleCollapsed}>{collapsed ? t('Раскрыть') : t('Скрыть')}</button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher />

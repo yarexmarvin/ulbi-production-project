@@ -4,6 +4,8 @@
  */
 
 import type { Config } from 'jest'
+import path from 'path'
+
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -17,6 +19,12 @@ const config: Config = {
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
+  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
+
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

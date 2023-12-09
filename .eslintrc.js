@@ -47,6 +47,14 @@ module.exports = {
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", '.tsx'] }],
         "import/no-unresolved": 'off',
         "import/prefer-default-export": 'off',
-        "i18next/no-literal-string": ['error', { markupOnly: true }]
-    }
+        "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }]
+    },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.ts?x$'],
+            rules: {
+                "i18next/no-literal-string": false
+            }
+        }
+    ]
 };
