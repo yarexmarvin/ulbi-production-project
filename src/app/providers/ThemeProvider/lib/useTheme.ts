@@ -9,7 +9,6 @@ interface UseThemeHook {
 
 export const useTheme = (): UseThemeHook => {
   const { theme, setTheme } = useContext(ThemeContext)
-
   const toggleTheme = () => {
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
 

@@ -1,11 +1,12 @@
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Button, ThemeButton } from './Button'
+
 import { Theme } from 'app/providers/ThemeProvider'
+import MainPage from './MainPage'
 import { type StoryObj } from '@storybook/react'
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'shared/Button',
-  component: Button,
+  title: 'pages/MainPage',
+  component: MainPage,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered'
@@ -15,44 +16,16 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' }
-  }
+  },
 }
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof MainPage>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-  args: {
-    children: 'Text'
-  }
+export const Light = {
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
-export const Clear = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.CLEAR
-  }
-}
-
-export const Outline = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE
-  }
-}
-export const OutlineDark: Story = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE
-  },
-  decorators: [
-    ThemeDecorator(Theme.DARK)
-  ]
-}
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button'
-  }
+export const Dark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)]
 }
