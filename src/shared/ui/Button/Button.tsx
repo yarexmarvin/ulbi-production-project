@@ -5,6 +5,7 @@ import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
 export enum ThemeButton {
   CLEAR = 'clear',
+  OUTLINE = 'outline'
 
 }
 
@@ -14,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button (props: PropsWithChildren<ButtonProps>) {
-  const { className, children, theme = ThemeButton.CLEAR, ...otherProps } = props
+  const { className, children, theme, ...otherProps } = props
 
   return (
     <button
