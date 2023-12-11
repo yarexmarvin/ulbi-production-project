@@ -18,16 +18,6 @@ const preview: Preview = {
       }
     }
   },
-  globals: {
-    locale: "ru",
-    locales: {
-      "Язык": "Язык1",
-      en: { sidebar: { "Язык": "Язык1" } },
-      ru: { sidebar: { "Язык": "Язык1" } },
-      fr: { title: "Français", left: '🇫🇷' },
-      ja: { title: "日本語", left: '🇯🇵' },
-    },
-  },
   decorators: [
     // сначала обертка app потом провайдер
     StyleProvider,
