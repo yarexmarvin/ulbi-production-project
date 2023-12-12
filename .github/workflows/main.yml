@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: [windows-2019]
     strategy:
       matrix:
         node-version: [20.3.1]
@@ -32,9 +32,3 @@ jobs:
         run: npm run storybook:build
       - name: UI Screenshot testing of the production project
         run: npm run test:ui:ci
-      - name: Archive screenshots
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v1
-        with:
-          name: react-example-screenshots
-          path: ./react-example-screenshots
