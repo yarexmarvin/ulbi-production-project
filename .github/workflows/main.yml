@@ -32,7 +32,6 @@ jobs:
         run: npm run storybook:build
       - name: Install Docker
         run: brew install --cask docker
-      - name: Start docker
-        run: open /Applications/Docker.app
+      - uses: actions/hello-world-docker-action@v2
       - name: UI Screenshot testing of the production project
         run: npm run test:ui:ci
