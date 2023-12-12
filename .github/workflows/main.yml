@@ -31,4 +31,4 @@ jobs:
       - name: Building storybook for the production project
         run: npm run storybook:build
       - name: UI Screenshot testing of the production project
-        run: yarn test:ui:ci
+        run: npm run test:ui:ci --approve
