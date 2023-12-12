@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 jobs:
   pipeline:
-   runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ ubuntu-latest ]
