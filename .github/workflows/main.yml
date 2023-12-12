@@ -22,9 +22,11 @@ jobs:
         run: npm install
       - name: Building a production project
         run: npm run build:prod
-      - name: TS lintingof the production project
+      - name: TS linting of the production project
         run: npm run lint:ts
       - name: SCSS linting of the production project
         run: npm run lint:scss
       - name: Unit testing of the production project
         run: npm run test
+      - name: UI Screenshot testing of the production project
+        run: yarn test:ui:ci
