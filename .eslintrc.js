@@ -39,7 +39,7 @@ module.exports = {
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-unused-vars": 'warn',
-        "@typescript-eslint/prefer-includes": "off"
+        "@typescript-eslint/prefer-includes": "off",
         "no-tabs": 0,
         "react/prop-types": 0,
         "react/jsx-indent": [2, 2],

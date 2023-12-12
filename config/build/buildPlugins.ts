@@ -21,14 +21,12 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }))
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
-
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false })
     )
   }

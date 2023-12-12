@@ -1,12 +1,10 @@
 import type { Preview } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
 import { AppDecorator } from 'shared/config/storybook/AppDecorator'
 import { LanguageProviderDecorator } from 'shared/config/storybook/LanguageProviderDecorator/LanguageProviderDecorator'
 import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 import StyleProvider from 'shared/config/storybook/StyleProvider/StyleProvider'
-import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+
 import { ThemeProviderDecorator } from 'shared/config/storybook/ThemeProviderDecorator/ThemeProvider'
-import { classNames } from 'shared/lib/classNames'
 
 const preview: Preview = {
   parameters: {
@@ -24,8 +22,7 @@ const preview: Preview = {
     AppDecorator,
     ThemeProviderDecorator,
     LanguageProviderDecorator,
-    RouterDecorator,
-
+    RouterDecorator
 
   ]
 

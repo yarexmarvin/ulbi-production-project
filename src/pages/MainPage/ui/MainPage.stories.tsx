@@ -16,7 +16,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' }
-  },
+  }
 }
 
 type Story = StoryObj<typeof MainPage>

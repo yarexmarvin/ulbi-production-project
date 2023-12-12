@@ -21,7 +21,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag'
   },
-  staticDirs: [{ from: '../../public/locales', to: 'locales' }],
+  staticDirs: [{ from: '../../public/locales', to: 'locales' }]
 
 }
 export default config

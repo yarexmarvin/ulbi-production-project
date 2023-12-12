@@ -1,8 +1,6 @@
-import { StoryFn } from "@storybook/react"
-import { useTheme } from "app/providers/ThemeProvider"
-import { classNames } from "shared/lib/classNames"
-
-
+import { type StoryFn } from '@storybook/react'
+import { useTheme } from 'app/providers/ThemeProvider'
+import { classNames } from 'shared/lib/classNames'
 
 export const AppDecorator = (Story: StoryFn) => {
   const { theme } = useTheme()
