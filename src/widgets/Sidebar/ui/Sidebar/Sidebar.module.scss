@@ -19,3 +19,20 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.link {
+  margin-bottom: 12px;
+}
+
+.sidebarSwitcher {
+  position: absolute;
+  bottom: 30vh;
+  right:0;
+  z-index: 2;
+}

@@ -1,5 +1,7 @@
 .AppLink {
+  display: flex;
   color: var(--primary-color);
+  margin-bottom: 18px;
 }
 
 .primary {
@@ -8,4 +10,20 @@
 
 .secondary {
   color: var(--inverted-primary-color);
+}
+
+.icon {
+  margin-left: 12px;
+  fill: var(--inverted-primary-color);
+}
+
+.iconsCenter{
+  margin-left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.text {
+  margin-left: 12px;
 }

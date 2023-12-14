@@ -30,7 +30,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   render () {
     const { hasError } = this.state
     const { children } = this.props
-    console.log('hasError', hasError)
+
     if (hasError) {
       // You can render any custom fallback UI
       return <Suspense>
