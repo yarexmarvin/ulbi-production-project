@@ -1,3 +1,4 @@
 .eslintrc.js
 src/shared/config/i18n
 config/jest
+scripts
