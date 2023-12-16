@@ -35,13 +35,13 @@ jobs:
         os: [ubuntu-latest]
         node-version: [20.x]
     steps:
-      - uses: actions/checkout@master
       - uses: actions/download-artifact@master
         with:
           name: my-artifact
           path: ./
-      - name: add permissions
-        run: git update-index --chmod=+x ./.github/scripts/xxx.sh
+      - uses: actions/checkout@master
+      - name: Install modules
+        run: npm install
       - name: TS linting of the production project
         run: npm run lint:ts
         if: always()
