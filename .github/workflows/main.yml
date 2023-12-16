@@ -6,13 +6,12 @@ on:
   pull_request:
     branches: ["master"]
 jobs:
-  pipeline:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
-        node-version: [ 20.x ]
-
+        os: [ubuntu-latest]
+        node-version: [20.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -24,6 +23,14 @@ jobs:
       - name: Building a production project
         run: npm run build:prod
         if: always()
+  testin:
+    runs-on: ${{ matrix.os }}
+    needs: build
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [20.x]
+    steps:
       - name: TS linting of the production project
         run: npm run lint:ts
         if: always()
