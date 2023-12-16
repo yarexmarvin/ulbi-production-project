@@ -40,6 +40,8 @@ jobs:
         with:
           name: my-artifact
           path: ./
+      - name: add permissions
+        run: git update-index --chmod=+x ./.github/scripts/xxx.sh
       - name: TS linting of the production project
         run: npm run lint:ts
         if: always()
