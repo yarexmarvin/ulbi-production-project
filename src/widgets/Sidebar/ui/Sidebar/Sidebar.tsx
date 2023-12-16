@@ -9,8 +9,6 @@ import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
-import MainIcon from 'shared/assets/icons/main-20-20.svg'
-
 interface SidebarProps {
   className?: string
 }

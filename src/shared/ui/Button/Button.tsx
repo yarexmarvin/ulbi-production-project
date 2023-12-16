@@ -16,10 +16,6 @@ export enum ButtonSize {
   XL = 'size_xl',
 }
 
-const mods: Record<string, boolean> = {
-  square: true
-}
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   theme?: ThemeButton

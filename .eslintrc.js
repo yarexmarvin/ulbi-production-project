@@ -21,6 +21,12 @@ module.exports = {
             "parserOptions": {
                 "sourceType": "script"
             }
+        },
+        {
+            files: ['**/src/**/*.test.tsx', '**/src/**/*.test.ts'],
+            rules: {
+                "i18next/no-literal-string": 'off'
+            }
         }
     ],
     "parserOptions": {
@@ -53,12 +59,4 @@ module.exports = {
         "react/display-name": 'off',
         "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }]
     },
-    overrides: [
-        {
-            files: ['**/src/**/*.test.tsx', '**/src/**/*.test.ts'],
-            rules: {
-                "i18next/no-literal-string": 'off'
-            }
-        }
-    ]
 };
