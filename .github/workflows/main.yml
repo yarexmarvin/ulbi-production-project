@@ -23,7 +23,11 @@ jobs:
       - name: Building a production project
         run: npm run build:prod
         if: always()
-  testin:
+      - uses: actions/upload-artifact@master
+        with:
+          name: my-artifact
+          path: ./
+  test:
     runs-on: ${{ matrix.os }}
     needs: build
     strategy:
@@ -31,6 +35,11 @@ jobs:
         os: [ubuntu-latest]
         node-version: [20.x]
     steps:
+      - uses: actions/checkout@master
+      - uses: actions/download-artifact@master
+        with:
+          name: my-artifact
+          path: ./
       - name: TS linting of the production project
         run: npm run lint:ts
         if: always()
