@@ -26,10 +26,9 @@ export const AppLink: FC<AppLinkProps & PropsWithChildren> = ({ className, child
       {<IconComponent className={cls.icon} />}
     </div>
     }
-    <div className={cls.text}>
-
-      {!onlyIcon && children}
-    </div>
+    {!onlyIcon && <div className={cls.text}>
+      {children}
+    </div>}
 
   </Link >
 }
