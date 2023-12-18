@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react'
+import { Theme } from 'app/providers/ThemeProvider'
 import { AppDecorator } from 'shared/config/storybook/AppDecorator'
 import { LanguageProviderDecorator } from 'shared/config/storybook/LanguageProviderDecorator/LanguageProviderDecorator'
 import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 import StyleProvider from 'shared/config/storybook/StyleProvider/StyleProvider'
-
-import { ThemeProviderDecorator } from 'shared/config/storybook/ThemeProviderDecorator/ThemeProvider'
+import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -20,7 +20,8 @@ const preview: Preview = {
     // сначала обертка app потом провайдер
     StyleProvider,
     AppDecorator,
-    ThemeProviderDecorator,
+    // ThemeProviderDecorator,
+    ThemeDecorator(Theme.LIGHT),
     LanguageProviderDecorator,
     RouterDecorator
 

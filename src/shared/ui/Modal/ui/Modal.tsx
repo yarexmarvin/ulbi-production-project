@@ -14,7 +14,7 @@ interface ModalProps {
 }
 
 export function Modal (props: PropsWithChildren<ModalProps>) {
-  const { className, children, onClose, isOpen } = props;
+  const { children, onClose, isOpen } = props;
 
   const { theme } = useTheme()
 

@@ -1,11 +1,11 @@
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Button, ThemeButton } from './Button'
 import { Theme } from 'app/providers/ThemeProvider'
 import { type StoryObj } from '@storybook/react'
+import { Modal } from './Modal'
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'shared/Button',
-  component: Button,
+  title: 'shared/Modal',
+  component: Modal,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered'
@@ -18,39 +18,22 @@ export default {
   }
 }
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof Modal>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
+    isOpen: true,
+    onClose: () => { },
     children: 'Text'
   }
 }
 
-export const Clear: Story = {
+export const Dark: Story = {
   args: {
-    children: 'Text',
-    theme: ThemeButton.CLEAR
-  }
-}
-
-export const ClearInverted: Story = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.CLEAR_INVERTED
-  }
-}
-
-export const Outline: Story = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE
-  }
-}
-export const OutlineDark: Story = {
-  args: {
-    children: 'Text',
-    theme: ThemeButton.OUTLINE
+    isOpen: true,
+    onClose: () => { },
+    children: 'Text'
   },
   decorators: [
     ThemeDecorator(Theme.DARK)
