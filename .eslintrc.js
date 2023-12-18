@@ -36,7 +36,8 @@ module.exports = {
     "plugins": [
         "react",
         "@typescript-eslint",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -57,6 +58,8 @@ module.exports = {
         "import/no-unresolved": 'off',
         "import/prefer-default-export": 'off',
         "react/display-name": 'off',
-        "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }]
+        "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     },
 };

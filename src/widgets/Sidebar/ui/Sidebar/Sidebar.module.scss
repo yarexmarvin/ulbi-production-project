@@ -3,6 +3,7 @@
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
   position: relative;
+  z-index: 5;
   transition: width 0.3s;
 }
 
