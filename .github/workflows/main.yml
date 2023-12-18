@@ -56,3 +56,7 @@ jobs:
         if: always()
       - name: UI Screenshot testing of the production project
         run: npm run test:ui:ci
+      - uses: actions/upload-artifact@master
+        with:
+          name: my-artifact
+          path: ./
