@@ -26,20 +26,17 @@ export const Primary: Story = {
     isOpen: true,
     onClose: () => { },
     children: 'Text'
-  },
-  decorators: [
-    ThemeDecorator(Theme.LIGHT)
-  ]
+  }
 
 }
 
-export const Dark: Story = {
-  args: {
-    isOpen: true,
-    onClose: () => { },
-    children: 'Text'
-  },
-  decorators: [
-    ThemeDecorator(Theme.DARK)
-  ]
-}
+// export const Dark: Story = {
+//   args: {
+//     isOpen: true,
+//     onClose: () => { },
+//     children: 'Text'
+//   },
+//   decorators: [
+//     ThemeDecorator(Theme.DARK)
+//   ]
+// }
