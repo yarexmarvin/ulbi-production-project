@@ -26,7 +26,11 @@ export const Primary: Story = {
     isOpen: true,
     onClose: () => { },
     children: 'Text'
-  }
+  },
+  decorators: [
+    ThemeDecorator(Theme.LIGHT)
+  ]
+
 }
 
 export const Dark: Story = {
