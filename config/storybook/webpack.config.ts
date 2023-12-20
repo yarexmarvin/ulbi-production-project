@@ -6,7 +6,7 @@ import { buildBabelLoader } from '../build/loaders/buildBabelLoader'
 import { buildTSLoader } from '../build/loaders/buildTSLoader'
 import { buildSVGLoader } from '../build/loaders/buildSvgLoader'
 import { buildFileLoader } from '../build/loaders/buildFileLoader'
-import { type RuleSetRule } from 'webpack'
+import { DefinePlugin, type RuleSetRule } from 'webpack'
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -25,6 +25,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   config.module.rules.push(buildCSSLoaders(true), buildBabelLoader(), buildTSLoader(), buildSVGLoader(), buildFileLoader())
+
+  config.plugins.push(
+    new DefinePlugin({
+      __IS_DEV__: true
+    })
+  );
 
   config.resolve.modules.push(paths.src)
   config.resolve.extensions.push('.ts', '.tsx')

@@ -3,6 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { AppDecorator } from 'shared/config/storybook/AppDecorator'
 import { LanguageProviderDecorator } from 'shared/config/storybook/LanguageProviderDecorator/LanguageProviderDecorator'
 import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
+import StoreDecorator from 'shared/config/storybook/StoreDecorator'
 import StyleProvider from 'shared/config/storybook/StyleProvider/StyleProvider'
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
@@ -23,7 +24,8 @@ const preview: Preview = {
     // ThemeProviderDecorator,
     ThemeDecorator(Theme.LIGHT),
     LanguageProviderDecorator,
-    RouterDecorator
+    RouterDecorator,
+    StoreDecorator
 
   ]
 
