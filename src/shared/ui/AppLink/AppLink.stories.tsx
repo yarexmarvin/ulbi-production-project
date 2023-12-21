@@ -21,12 +21,7 @@ export default {
 type Story = StoryObj<typeof AppLink>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    children: 'AppLink',
-    to: '/'
-  }
-}
+
 export const PrimaryLight: Story = {
   args: {
     children: 'AppLink',
@@ -35,20 +30,23 @@ export const PrimaryLight: Story = {
   decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
-export const Secondary: Story = {
+export const SecondaryLight: Story = {
   args: {
     children: 'AppLink',
     to: '/',
     theme: AppLinkTheme.SECONDARY
-  }
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)]
+
 }
 
-export const WithIcon: Story = {
+export const WithIconDark: Story = {
   args: {
     children: 'AppLink',
     icon: 'Main',
     to: '/'
-  }
+  },
+  decorators: [ThemeDecorator(Theme.DARK)]
 }
 export const WithIconLight: Story = {
   args: {
@@ -60,13 +58,15 @@ export const WithIconLight: Story = {
 
 }
 
-export const OnlyIcon: Story = {
+export const OnlyIconDark: Story = {
   args: {
     children: 'AppLink',
     icon: 'Main',
     onlyIcon: true,
     to: '/'
-  }
+  },
+  decorators: [ThemeDecorator(Theme.DARK)]
+
 }
 
 export const OnlyIconLight: Story = {

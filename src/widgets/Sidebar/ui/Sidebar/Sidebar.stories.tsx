@@ -23,7 +23,7 @@ type Story = StoryObj<typeof Sidebar>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Light = {
-  // decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Story = {

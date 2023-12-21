@@ -23,7 +23,7 @@ type Story = StoryObj<typeof ThemeSwitcher>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Dark = {
-
+  decorators: [ThemeDecorator(Theme.DARK)]
 }
 export const Light: Story = {
   decorators: [ThemeDecorator(Theme.LIGHT)]

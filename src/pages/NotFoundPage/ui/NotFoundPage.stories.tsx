@@ -1,12 +1,12 @@
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 import { Theme } from 'app/providers/ThemeProvider'
+import { NotFoundPage } from './NotFoundPage'
 import { type StoryObj } from '@storybook/react'
-import { Loader } from './Loader'
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
-  title: 'shared/Loader',
-  component: Loader,
+  title: 'pages/NotFoundPage',
+  component: NotFoundPage,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered'
@@ -19,12 +19,13 @@ export default {
   }
 }
 
-type Story = StoryObj<typeof Loader>
+type Story = StoryObj<typeof NotFoundPage>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Light = {
   decorators: [ThemeDecorator(Theme.LIGHT)]
 }
+
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)]
 }
