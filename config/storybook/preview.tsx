@@ -1,7 +1,4 @@
 import type { Preview } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
-import { AppDecorator } from 'shared/config/storybook/AppDecorator'
-import { BodyDecorator } from 'shared/config/storybook/BodyDecorator'
 import { LanguageProviderDecorator } from 'shared/config/storybook/LanguageProviderDecorator/LanguageProviderDecorator'
 import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator'
