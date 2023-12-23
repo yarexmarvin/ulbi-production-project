@@ -4,6 +4,7 @@
 
 .placeholder {
   margin-left: 5px;
+  color: var(--primary-color)
 }
 
 .input {
@@ -26,7 +27,7 @@
   bottom: 0;
   left: 0;
   position: absolute;
-
+  color: var(--primary-color)
 }
 
 .caretAnimation {
