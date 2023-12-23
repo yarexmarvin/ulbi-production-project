@@ -48,6 +48,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": 'warn',
         "@typescript-eslint/prefer-includes": "off",
         "@typescript-eslint/semi": "off",
+        "@typescript-eslint/no-confusing-void-expression": "off",
         "no-tabs": 0,
         "react/prop-types": 0,
         "react/jsx-indent": [2, 2],

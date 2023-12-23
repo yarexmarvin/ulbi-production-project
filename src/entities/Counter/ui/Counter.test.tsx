@@ -2,11 +2,13 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Counter } from 'entities/Counter/ui/Counter'
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
+import { defaultState } from 'app/providers/StoreProvider/index'
 
 describe('Counter', () => {
   it('should render Counter', () => {
     componentRender(<Counter />, {
       initialState: {
+        ...defaultState,
         counter: { value: 10 }
       }
     })
@@ -16,6 +18,7 @@ describe('Counter', () => {
   it('should render increment counter', () => {
     componentRender(<Counter />, {
       initialState: {
+        ...defaultState,
         counter: { value: 10 }
       }
     })
@@ -27,6 +30,7 @@ describe('Counter', () => {
   it('should render decrement counter', () => {
     componentRender(<Counter />, {
       initialState: {
+        ...defaultState,
         counter: { value: 10 }
       }
     })

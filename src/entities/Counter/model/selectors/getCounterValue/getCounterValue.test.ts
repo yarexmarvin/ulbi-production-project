@@ -4,7 +4,7 @@ import { getCounterValue } from 'entities/Counter/model/selectors/getCounterValu
 
 describe('getCounterValue', () => {
   it('should return counter state value', () => {
-    const state: Partial<StateScheme> = {
+    const state: Pick<StateScheme, 'counter'> = {
       counter: {
         value: 10
       }

@@ -2,9 +2,9 @@ import { classNames } from 'shared/lib/classNames'
 
 import cls from './Navbar.module.scss'
 import { useCallback, useState } from 'react'
-import Modal from 'shared/ui/Modal'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { LoginModal } from 'features/AuthByUserName'
 
 interface NavbarProps {
   className?: string
@@ -23,8 +23,6 @@ export const Navbar = ({ className }: NavbarProps) => {
       {t('Войти')}
     </Button>
 
-    <Modal isOpen={isAuthModalOpen} onClose={toggleAuthModal}>
-      {t('Форма входа')}
-    </Modal>
+    <LoginModal isOpen={isAuthModalOpen} onClose={toggleAuthModal} />
   </div>
 }
