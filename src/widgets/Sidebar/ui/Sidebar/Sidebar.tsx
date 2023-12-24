@@ -7,7 +7,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/ui/LangSwitcher'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface SidebarProps {
   className?: string
@@ -18,9 +18,9 @@ export function Sidebar (props: PropsWithChildren<SidebarProps>) {
 
   const [collapsed, setCollapsed] = useState(false)
 
-  const { t } = useTranslation('sidebar')
+  const { t } = useTranslation('sidebar');
 
-  const toggleCollapsed = () => { setCollapsed(prev => !prev) }
+  const toggleCollapsed = () => { setCollapsed(prev => !prev) };
 
   return (
     <div
