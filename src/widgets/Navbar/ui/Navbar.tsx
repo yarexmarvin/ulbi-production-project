@@ -5,6 +5,9 @@ import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUserName'
+import { useSelector } from 'react-redux'
+import { getUserAuthData, userActions } from 'entities/User'
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks'
 
 interface NavbarProps {
   className?: string
@@ -15,7 +18,24 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  const toggleAuthModal = useCallback(() => { setIsAuthModalOpen(prev => !prev) }, [])
+  const dispatch = useAppDispatch()
+  const authData = useSelector(getUserAuthData)
+
+  const toggleAuthModal = useCallback(() => { setIsAuthModalOpen(prev => !prev) }, []);
+
+  const handleLogout = () => {
+    dispatch(userActions.logOut())
+  }
+
+  if (authData) {
+    return <div className={classNames({ cls: cls.Navbar, additional: [className] })}>
+
+      <Button onClick={handleLogout} theme={ThemeButton.CLEAR_INVERTED} >
+        {t('Выйти')}
+      </Button>
+
+    </div>
+  }
 
   return <div className={classNames({ cls: cls.Navbar, additional: [className] })}>
 

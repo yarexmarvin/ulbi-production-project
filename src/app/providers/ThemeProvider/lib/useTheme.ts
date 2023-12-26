@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext'
 
 interface UseThemeHook {
@@ -8,13 +8,16 @@ interface UseThemeHook {
 }
 
 export const useTheme = (): UseThemeHook => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+
+    document.body.className = theme
+  }, [theme])
+
   const toggleTheme = () => {
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
-
-    document.body.className = newTheme
 
     setTheme(newTheme)
   }
