@@ -3,6 +3,8 @@ import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider'
 import { Navbar } from './Navbar'
 import { type StoryObj } from '@storybook/react'
+import StoreDecorator from 'shared/config/storybook/StoreDecorator'
+import { defaultState } from 'app/providers/StoreProvider'
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: 'widget/Navbar',
@@ -28,4 +30,13 @@ export const Light = {
 
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const LightAuthorizedUser: Story = {
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { authData: { id: '1', username: 'dsads' } } })
+  ]
+}
+export const DarkAuthorizedUser: Story = {
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { authData: { id: '1', username: 'dsads' } } })
+  ]
 }

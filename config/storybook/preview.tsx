@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react'
+import { defaultState } from 'app/providers/StoreProvider'
 import { LanguageProviderDecorator } from 'shared/config/storybook/LanguageProviderDecorator/LanguageProviderDecorator'
 import RouterDecorator from 'shared/config/storybook/RouterDecorator/RouterDecorator'
 import StoreDecorator from 'shared/config/storybook/StoreDecorator'
@@ -19,7 +20,7 @@ const preview: Preview = {
     StyleProvider,
     LanguageProviderDecorator,
     RouterDecorator,
-    StoreDecorator
+    StoreDecorator(defaultState)
 
   ]
 
