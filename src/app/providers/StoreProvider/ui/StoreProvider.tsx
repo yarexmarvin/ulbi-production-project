@@ -1,5 +1,4 @@
 import { store } from 'app/providers/StoreProvider/config/store';
-import { type StateScheme } from '../config/StateScheme';
 
 import type { PropsWithChildren, ReactNode } from 'react';
 import { Provider } from 'react-redux';

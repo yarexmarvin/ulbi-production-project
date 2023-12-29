@@ -1,7 +1,7 @@
 import { type Reducer, combineReducers } from '@reduxjs/toolkit';
 import { type StateSchemaKey } from 'app/providers/StoreProvider/config/StateScheme';
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
-import { AppReducer, reducers } from 'app/providers/StoreProvider/config/store';
+import { reducers } from 'app/providers/StoreProvider/config/store';
 import { useEffect, type PropsWithChildren } from 'react';
 import { useStore } from 'react-redux';
 

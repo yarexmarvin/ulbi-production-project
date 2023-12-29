@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { type StateScheme, StoreProvider } from 'app/providers/StoreProvider'
+import { type StateScheme } from 'app/providers/StoreProvider'
 import { type ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { MemoryRouter } from 'react-router-dom'
