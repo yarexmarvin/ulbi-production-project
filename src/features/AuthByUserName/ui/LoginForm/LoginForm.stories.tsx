@@ -1,5 +1,5 @@
 import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { LoginForm } from './LoginForm'
+import LoginForm from './LoginForm'
 import { Theme } from 'app/providers/ThemeProvider'
 import { type StoryObj } from '@storybook/react'
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

@@ -1,26 +1,62 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { type StateScheme } from './StateScheme';
 
-import { loginInitialState, loginReducer } from 'features/AuthByUserName';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+// import { loginInitialState } from 'features/AuthByUserName';
+// import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 
-const rootReducer = combineReducers({
+export const reducers = {
   counter: counterReducer,
-  user: userReducer,
-  loginForm: loginReducer
-})
+  user: userReducer
+  // async
+  // loginForm: loginReducer
+}
+
+const rootReducer = combineReducers(reducers)
 
 export const defaultState: StateScheme = {
   counter: { value: 0 },
-  user: {},
-  loginForm: loginInitialState
+  user: {}
+  // loginForm: loginInitialState
 }
 
-export const createReduxStore = (initialState?: StateScheme) => {
-  return configureStore<StateScheme>({
-    reducer: rootReducer,
-    preloadedState: initialState,
-    devTools: __IS_DEV__
-  })
-}
+// const reducerManager = createReducerManager(reducers)
+
+// console.log('rootReducer', rootReducer)
+
+// export const createReduxStore = (initialState?: StateScheme) => {
+//   return configureStore<StateScheme>({
+//     reducer: rootReducer,
+//     preloadedState: initialState,
+//     devTools: __IS_DEV__
+//   })
+// }
+
+// export const configureStore = (initialState: StateScheme) => {
+//   const reducerManager = createReducerManager(reducers)
+
+//   // Create a store with the root reducer function being the one exposed by the manager.
+//   const store = createStore(reducerManager.reduce, initialState)
+
+//   // Optional: Put the reducer manager on the store so it is easily accessible
+//   // @ts-ignore
+//   store.reducerManager = reducerManager
+
+//   return store;
+// }
+
+// export const store = configureStore(defaultState)
+
+export const store = configureStore<StateScheme>({
+  reducer: rootReducer,
+  preloadedState: defaultState,
+  devTools: __IS_DEV__
+})
+
+// @ts-ignore
+// store.reducerManager = reducerManager
+
+export type AppReducer = typeof reducers
+export type RootReducer = ReturnType<typeof rootReducer>
+export type AppDispatch = typeof store.dispatch
