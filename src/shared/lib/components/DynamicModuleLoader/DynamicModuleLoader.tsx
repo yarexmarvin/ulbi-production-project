@@ -52,7 +52,8 @@ export function DynamicModuleLoader (props: PropsWithChildren<DynamicModuleLoade
         }
       })
     }
-  }, [store, dispatch, dynamicReducers])
+    // eslint-disable-next-line
+  }, [store, dispatch])
 
   return (<div >
     {children}
