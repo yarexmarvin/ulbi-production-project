@@ -1,5 +1,5 @@
 import { StoreProvider } from './ui/StoreProvider';
-import { defaultState, store } from './config/store';
+import { defaultState, store, createReduxStore } from './config/store';
 import { type StateScheme, type ReduxStoreWithManager } from './config/StateScheme'
 
 export {
@@ -7,5 +7,6 @@ export {
   defaultState,
   type StateScheme,
   store,
+  createReduxStore,
   type ReduxStoreWithManager
 }

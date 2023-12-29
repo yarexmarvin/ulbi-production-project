@@ -25,13 +25,13 @@ export const defaultState: StateScheme = {
 
 // console.log('rootReducer', rootReducer)
 
-// export const createReduxStore = (initialState?: StateScheme) => {
-//   return configureStore<StateScheme>({
-//     reducer: rootReducer,
-//     preloadedState: initialState,
-//     devTools: __IS_DEV__
-//   })
-// }
+export const createReduxStore = (initialState?: StateScheme) => {
+  return configureStore<StateScheme>({
+    reducer: rootReducer,
+    preloadedState: initialState,
+    devTools: __IS_DEV__
+  })
+}
 
 // export const configureStore = (initialState: StateScheme) => {
 //   const reducerManager = createReducerManager(reducers)

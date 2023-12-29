@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 
 interface StoreProviderProps {
   children: ReactNode
-  initialState?: StateScheme
 }
 
 export function StoreProvider (props: PropsWithChildren<StoreProviderProps>) {

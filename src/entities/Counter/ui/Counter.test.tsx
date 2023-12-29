@@ -6,34 +6,19 @@ import { defaultState } from 'app/providers/StoreProvider/index'
 
 describe('Counter', () => {
   it('should render Counter', () => {
-    componentRender(<Counter />, {
-      initialState: {
-        ...defaultState,
-        counter: { value: 10 }
-      }
-    })
+    componentRender(<Counter />)
 
-    expect(screen.getByTestId('value')).toHaveTextContent('10')
+    expect(screen.getByTestId('value')).toHaveTextContent('0')
   })
   it('should render increment counter', () => {
-    componentRender(<Counter />, {
-      initialState: {
-        ...defaultState,
-        counter: { value: 10 }
-      }
-    })
+    componentRender(<Counter />, { initialState: { ...defaultState, counter: { value: 10 } } })
 
     fireEvent.click(screen.getByTestId('increment-btn'))
 
     expect(screen.getByTestId('value')).toHaveTextContent('11')
   })
   it('should render decrement counter', () => {
-    componentRender(<Counter />, {
-      initialState: {
-        ...defaultState,
-        counter: { value: 10 }
-      }
-    })
+    componentRender(<Counter />, { initialState: { ...defaultState, counter: { value: 10 } } })
 
     fireEvent.click(screen.getByTestId('decrement-btn'))
 
