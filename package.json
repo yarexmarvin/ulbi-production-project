@@ -15,7 +15,7 @@
     "test:ui": "npx loki test --host 192.168.1.102 --port 49994",
     "test:ui:ci": "npx loki ---reactPort 49994 --requireReference --reactUri file:./storybook-static",
     "test:ui:approve": "npx loki approve",
-    "storybook": "storybook dev -c ./config/storybook",
+    "storybook": "storybook dev --host 192.168.1.102 --port 49994 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "visual:report": "npm run visual:report:json && npm run visual:report:html",
     "visual:report:json": "node scripts/generate-visual-json-report.js",
