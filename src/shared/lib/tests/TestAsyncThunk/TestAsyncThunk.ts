@@ -21,7 +21,6 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 
     const result = await action(this.dispatch, this.getState, undefined);
 
-    console.log('result', result)
     return result;
   }
 }
