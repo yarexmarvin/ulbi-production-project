@@ -1,4 +1,4 @@
-import { type SVGProps, type FC, type PropsWithChildren } from 'react'
+import { type SVGProps, type FC, type PropsWithChildren, memo } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames'
 import cls from './AppLink.module.scss'
@@ -17,7 +17,7 @@ interface AppLinkProps extends LinkProps {
   onlyIcon?: boolean
 }
 
-export const AppLink: FC<AppLinkProps & PropsWithChildren> = ({ className, children, theme = AppLinkTheme.PRIMARY, to, icon, onlyIcon, ...otherProps }) => {
+export const AppLink: FC<AppLinkProps & PropsWithChildren> = memo(({ className, children, theme = AppLinkTheme.PRIMARY, to, icon, onlyIcon, ...otherProps }) => {
   const IconComponent: React.FunctionComponent<SVGProps<SVGSVGElement>> = iconsHelper(icon)
 
   return <Link to={to} className={classNames({ cls: cls.AppLink, additional: [className, cls[theme]] })} {...otherProps}>
@@ -31,4 +31,4 @@ export const AppLink: FC<AppLinkProps & PropsWithChildren> = ({ className, child
     </div>}
 
   </Link >
-}
+})

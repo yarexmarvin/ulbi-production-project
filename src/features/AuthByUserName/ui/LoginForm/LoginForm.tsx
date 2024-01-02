@@ -16,10 +16,11 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/Dy
 
 export interface LoginFormProps {
   className?: string
+  handleCloseModal: () => void
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className } = props;
+  const { className, handleCloseModal } = props;
 
   // const store = useStore() as ReduxStoreWithManager
 
@@ -38,8 +39,13 @@ const LoginForm = memo((props: LoginFormProps) => {
   }, [dispatch]);
 
   const handleOnLogin = useCallback(async () => {
-    await dispatch(loginByUserName({ username, password }))
-  }, [dispatch, username, password])
+    const result = await dispatch(loginByUserName({ username, password }))
+    console.log(result)
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      handleCloseModal()
+    }
+  }, [dispatch, username, password, handleCloseModal])
 
   const dynamicReducers: ReducersList = {
     loginForm: { reducer: loginReducer, removeAfterUnmount: true }

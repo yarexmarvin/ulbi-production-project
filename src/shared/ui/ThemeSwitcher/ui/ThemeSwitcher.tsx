@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react'
 
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames'
@@ -11,16 +11,16 @@ interface ThemeSwitcherProps {
   className?: string
 }
 
-export function ThemeSwitcher (props: PropsWithChildren<ThemeSwitcherProps>) {
+export const ThemeSwitcher = memo((props: PropsWithChildren<ThemeSwitcherProps>) => {
   const { className } = props
   const { theme, toggleTheme } = useTheme()
 
   return (
     <Button className={classNames({ cls: '', additional: [className] })} onClick={toggleTheme}
       theme={ThemeButton.CLEAR}
-		>
+    >
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
 
   )
-}
+})

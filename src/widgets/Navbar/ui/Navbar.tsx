@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames'
 
 import cls from './Navbar.module.scss'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUserName'
@@ -13,7 +13,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation('navbar');
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -45,4 +45,4 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     <LoginModal isOpen={isAuthModalOpen} onClose={toggleAuthModal} />
   </div>
-}
+})
