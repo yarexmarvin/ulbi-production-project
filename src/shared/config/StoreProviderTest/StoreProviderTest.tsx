@@ -11,7 +11,7 @@ interface StoreProviderProps {
 
 export function StoreProviderTest (props: PropsWithChildren<StoreProviderProps>) {
   const { children, initialState } = props
-
+  console.log('initialState', initialState)
   const store = createReduxStore(initialState);
 
   return (

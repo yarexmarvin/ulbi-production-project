@@ -28,30 +28,35 @@ export function DynamicModuleLoader (props: PropsWithChildren<DynamicModuleLoade
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    console.log('here', dynamicReducers)
     const allReducers: Record<StateSchemaKey | string, Reducer> = { ...reducers }
 
     const isReducerExist = (reducerName: StateSchemaKey) => !!allReducers[reducerName]
 
-    Object.entries(dynamicReducers).forEach(([key, value]: ReducerListEntry) => {
-      if (!isReducerExist(key)) {
+    Object.entries(dynamicReducers).forEach(([key, value]) => {
+      if (!isReducerExist(key as StateSchemaKey)) {
         allReducers[key] = value.reducer
         store.replaceReducer(combineReducers(allReducers))
 
         dispatch({ type: `@DYNAMIC REDUCER: Reducer ${key} has been added` })
       }
-    })
+      console.log('allReducers after add', allReducers)
+    }, [])
 
     return () => {
-      Object.entries(dynamicReducers).forEach(([key, value]: ReducerListEntry) => {
-        if (value.removeAfterUnmount && isReducerExist(key)) {
+      Object.entries(dynamicReducers).forEach(([key, value]) => {
+        if (value.removeAfterUnmount && isReducerExist(key as StateSchemaKey)) {
           delete allReducers[key]
 
           store.replaceReducer(combineReducers(allReducers))
+
+          console.log('allReducers after remove', allReducers)
 
           dispatch({ type: `@DYNAMIC REDUCER: Reducer ${key} has been removed` })
         }
       })
     }
+
     // eslint-disable-next-line
   }, [store, dispatch])
 

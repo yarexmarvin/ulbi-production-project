@@ -53,6 +53,8 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/prefer-ts-expect-error": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-invalid-void-type": "off",
         "no-tabs": 0,
         "react/prop-types": 0,
         "react/jsx-indent": [2, 2],

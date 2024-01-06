@@ -8,6 +8,10 @@ import { buildSVGLoader } from '../build/loaders/buildSvgLoader'
 import { buildFileLoader } from '../build/loaders/buildFileLoader'
 import { DefinePlugin, type RuleSetRule } from 'webpack'
 
+function isRule (rule: any): rule is RuleSetRule {
+  return (rule as RuleSetRule).test !== undefined;
+}
+
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
     build: '',
@@ -16,9 +20,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src')
   }
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i }
+  config.module.rules = config.module.rules.map((rule) => {
+    if (isRule(rule)) {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i }
+      }
     }
 
     return rule
@@ -28,7 +34,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.plugins.push(
     new DefinePlugin({
-      __IS_DEV__: true
+      __IS_DEV__: true,
+      __API__: JSON.stringify('')
     })
   );
 

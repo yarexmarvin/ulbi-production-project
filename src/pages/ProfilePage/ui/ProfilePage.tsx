@@ -1,16 +1,24 @@
-import type { PropsWithChildren } from 'react';
+import { useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames'
 import cls from './ProfilePage.module.scss';
-import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from 'entities/Profile';
+import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 
-interface ProfilePageProps {
-  className?: string
-}
+const ProfilePage = () => {
+  const dispatch = useAppDispatch()
 
-export default function ProfilePage (props: PropsWithChildren<ProfilePageProps>) {
-  const { t } = useTranslation()
+  const getProfileData = async () => {
+    try {
+      await dispatch(fetchProfileData())
+    } catch (error) {
+      console.warn('error in getProfileData', error)
+    }
+  }
+
+  useEffect(() => {
+    getProfileData()
+  }, [])
 
   const dynamicReducers: ReducersList = {
     profile: { reducer: profileReducer, removeAfterUnmount: true }
@@ -19,7 +27,9 @@ export default function ProfilePage (props: PropsWithChildren<ProfilePageProps>)
   return <DynamicModuleLoader dynamicReducers={dynamicReducers}>
 
     <div className={classNames({ cls: cls.ProfilePage, mods: {}, additional: [] })}>
-      {t('Profile page')}
+      <ProfileCard />
     </div>
   </DynamicModuleLoader>
 }
+
+export default ProfilePage

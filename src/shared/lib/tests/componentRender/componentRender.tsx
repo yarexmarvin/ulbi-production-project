@@ -15,12 +15,12 @@ export const componentRender = (component: ReactNode, options: componentRenderOp
   const { route = '/', initialState } = options
 
   return render(
-    <StoreProviderTest initialState={initialState} >
-      <MemoryRouter initialEntries={[route]} >
+    <MemoryRouter initialEntries={[route]} >
+      <StoreProviderTest initialState={initialState} >
         <I18nextProvider i18n={i18nForTests}>
           {component}
         </I18nextProvider>
-      </MemoryRouter >
-    </StoreProviderTest>
+      </StoreProviderTest>
+    </MemoryRouter >
   )
 }
