@@ -22,8 +22,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.module.rules = config.module.rules.map((rule) => {
     if (isRule(rule)) {
-      if (/svg/.test(rule.test as string)) {
-        return { ...rule, exclude: /\.svg$/i }
+      if (/(svg|png|jpe?g|gif|webp)/ig.test(rule.test as string)) {
+        return { ...rule, exclude: /\.(svg|png|jpe?g|gif|webp)$/i }
       }
     }
 

@@ -28,7 +28,6 @@ export function DynamicModuleLoader (props: PropsWithChildren<DynamicModuleLoade
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('here', dynamicReducers)
     const allReducers: Record<StateSchemaKey | string, Reducer> = { ...reducers }
 
     const isReducerExist = (reducerName: StateSchemaKey) => !!allReducers[reducerName]
@@ -40,7 +39,6 @@ export function DynamicModuleLoader (props: PropsWithChildren<DynamicModuleLoade
 
         dispatch({ type: `@DYNAMIC REDUCER: Reducer ${key} has been added` })
       }
-      console.log('allReducers after add', allReducers)
     }, [])
 
     return () => {
@@ -49,8 +47,6 @@ export function DynamicModuleLoader (props: PropsWithChildren<DynamicModuleLoade
           delete allReducers[key]
 
           store.replaceReducer(combineReducers(allReducers))
-
-          console.log('allReducers after remove', allReducers)
 
           dispatch({ type: `@DYNAMIC REDUCER: Reducer ${key} has been removed` })
         }

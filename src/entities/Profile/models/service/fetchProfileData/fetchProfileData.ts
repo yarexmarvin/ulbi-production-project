@@ -13,6 +13,6 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
       return response.data;
     } catch (error: any) {
       console.warn('error in fetchProfileData', error);
-      return rejectWithValue(error.response?.request?.statusText || error.message);
+      return rejectWithValue(error.response?.data?.message || error.message);
     }
   })

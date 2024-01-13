@@ -39,7 +39,6 @@ export function createReducerManager (initialReducers: AppReducer): ReducerManag
       // @ts-ignore
       reducers[key] = reducer
 
-      console.log('reducers', reducers)
       combinedReducer = combineReducers(reducers)
     },
 

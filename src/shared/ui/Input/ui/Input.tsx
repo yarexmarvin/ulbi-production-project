@@ -2,19 +2,20 @@ import { memo, type InputHTMLAttributes, useState, useRef, useEffect } from 'rea
 import { classNames } from 'shared/lib/classNames'
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readonly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string
-  value?: string
+  value?: string | number
   type?: string
   placeholder?: string
   autoFocus?: boolean
   onChange?: (value?: string) => void
+  readonly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
-  const { className, onChange, value, type = 'text', placeholder, autoFocus = false, ...otherProps } = props;
+  const { className, onChange, value, type = 'text', placeholder, autoFocus = false, readonly, ...otherProps } = props;
 
   const inputRef = useRef<HTMLInputElement>()
 
@@ -42,7 +43,9 @@ export const Input = memo((props: InputProps) => {
     setCaretPosition(e.target?.selectionStart || 0)
   }
 
-  return <div className={classNames({ cls: cls.InputWrapper, mods: {}, additional: [className] })}>
+  const isCaretVisible = isFocused && !readonly
+
+  return <div className={classNames({ cls: cls.InputWrapper, mods: { [cls.readOnly]: readonly }, additional: [className] })}>
     {!!placeholder && <div onClick={() => inputRef.current?.focus()} className={cls.placeholder}>{`${placeholder}>`}</div>}
     <div className={cls.caretWrapper}>
 
@@ -55,9 +58,10 @@ export const Input = memo((props: InputProps) => {
         className={cls.input}
         type={type}
         value={value}
+        readOnly={readonly}
         {...otherProps}
       />
-      {isFocused && <span
+      {isCaretVisible && <span
         style={{ transform: `translate3d(${caretPosition}ch, 0, 0)` }}
         className={classNames({ cls: cls.caret, mods: {}, additional: [cls.caretAnimation] })}
       />}

@@ -1,9 +1,11 @@
 .InputWrapper {
   display: flex;
+  align-items: center;
 }
 
 .placeholder {
   margin-left: 5px;
+  margin-right: 6px;
   color: var(--primary-color);
 }
 
@@ -56,4 +58,9 @@
     opacity: 1
   }
 
+}
+
+.readOnly {
+  opacity: 0.5;
+  pointer-events: none;
 }
