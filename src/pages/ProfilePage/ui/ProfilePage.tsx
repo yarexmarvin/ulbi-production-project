@@ -12,14 +12,26 @@ import { getProfileReadOnly } from 'entities/Profile/models/selector/getProfiler
 import { getProfileForm } from 'entities/Profile/models/selector/getProfileForm/getProfileForm';
 import { type CURRENCY } from 'entities/Currency';
 import { type COUNTRY } from 'entities/Country';
+import { getProfileValidationErrors } from 'entities/Profile/models/selector/getProfileValidationErrors/getProfileValidationErrors';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
+import { ValidationErrors } from 'entities/Profile/models/types/profile';
 
 const ProfilePage = () => {
+  const { t } = useTranslation('profile');
+
+  const validationErrorsMapping: Record<ValidationErrors, string> = {
+    [ValidationErrors.INCORRECTED_NAME]: t('Неверное имя'),
+    [ValidationErrors.INCORRECTED_AGE]: t('Неверный возраст'),
+    [ValidationErrors.NO_DATA]: t('Нет данных')
+  }
   const dispatch = useAppDispatch()
 
   const data = useSelector(getProfileForm)
   const isLoading = useSelector(getProfileIsLoading)
   const error = useSelector(getProfileError)
   const readOnly = useSelector(getProfileReadOnly)
+  const validationErrors = useSelector(getProfileValidationErrors)
 
   const getProfileInfo = useCallback(async () => {
     try {
@@ -30,7 +42,9 @@ const ProfilePage = () => {
   }, [dispatch])
 
   useEffect(() => {
-    getProfileInfo()
+    if (__PROJECT__ !== 'storybook') {
+      getProfileInfo()
+    }
   }, [getProfileInfo])
 
   const dynamicReducers: ReducersList = {
@@ -64,6 +78,9 @@ const ProfilePage = () => {
 
     <div className={classNames({ cls: cls.ProfilePage, mods: {}, additional: [] })}>
       <ProfilePageHeader readOnly={readOnly} />
+      {!!validationErrors?.length && <div>
+        {validationErrors.map(error => <Text key={error} theme={TextTheme.ERROR} text={validationErrorsMapping[error]} />)}
+      </div>}
       <ProfileCard
         data={data}
         isLoading={isLoading}

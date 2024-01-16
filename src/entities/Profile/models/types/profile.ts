@@ -17,4 +17,11 @@ export interface ProfileSchema {
   isLoading: boolean
   error?: string
   readonly: boolean
+  validateErrors?: ValidationErrors[]
+}
+
+export enum ValidationErrors {
+  NO_DATA = 'NO_DATA',
+  INCORRECTED_NAME = 'INCORRECTED_NAME',
+  INCORRECTED_AGE = 'INCORRECTED_AGE',
 }

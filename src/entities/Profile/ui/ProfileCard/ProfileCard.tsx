@@ -84,7 +84,7 @@ export function ProfileCard (props: PropsWithChildren<ProfileCardProps>) {
         readonly={readOnly}
         className={cls.input}
         value={data?.age}
-        placeholder='Страна'
+        placeholder='Возраст'
       />
       <CurrencySelect
         className={cls.input}

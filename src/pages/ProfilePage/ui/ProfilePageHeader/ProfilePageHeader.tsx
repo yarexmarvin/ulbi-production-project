@@ -23,6 +23,7 @@ export function ProfilePageHeader (props: PropsWithChildren<ProfilePageHeaderPro
   }
   const onCancelEdit = () => {
     dispatch(profileActions.cancelEdit())
+    dispatch(profileActions.setValidationErrors([]))
   }
   const onSave = () => {
     dispatch(updateProfileData())
