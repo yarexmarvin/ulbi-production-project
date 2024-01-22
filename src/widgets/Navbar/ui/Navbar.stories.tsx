@@ -33,10 +33,10 @@ export const Dark: Story = {
 }
 
 export const LightAuthorizedUser: Story = {
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { authData: { id: '1', username: 'dsads' } } })
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { _inited: true, authData: { id: '1', username: 'dsads' } } })
   ]
 }
 export const DarkAuthorizedUser: Story = {
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { authData: { id: '1', username: 'dsads' } } })
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ ...defaultState, user: { _inited: true, authData: { id: '1', username: 'dsads' } } })
   ]
 }

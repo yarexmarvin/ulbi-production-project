@@ -16,7 +16,9 @@ const rootReducer = combineReducers(reducers)
 
 export const defaultState: StateScheme = {
   counter: { value: 0 },
-  user: {}
+  user: {
+    _inited: true
+  }
 
 }
 

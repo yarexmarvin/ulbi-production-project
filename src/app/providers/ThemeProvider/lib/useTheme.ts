@@ -17,10 +17,22 @@ export const useTheme = (): UseThemeHook => {
   }, [theme])
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+    const newTheme = getNextTheme(theme)
 
     setTheme(newTheme)
   }
 
   return { theme, toggleTheme }
+}
+
+const getNextTheme = (theme: Theme) => {
+  switch (theme) {
+    case Theme.LIGHT:
+      return Theme.DARK;
+    case Theme.DARK:
+      return Theme.BLUE
+    case Theme.BLUE:
+      return Theme.LIGHT
+    default: return Theme.LIGHT
+  }
 }

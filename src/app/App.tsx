@@ -5,10 +5,13 @@ import { classNames } from 'shared/lib/classNames'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks'
-import { userActions } from 'entities/User'
+import { getUserInited, userActions } from 'entities/User'
+import { useSelector } from 'react-redux'
 
 const App = () => {
   const dispatch = useAppDispatch();
+
+  const inited = useSelector(getUserInited)
 
   useEffect(() => {
     dispatch(userActions.initUser())
@@ -21,7 +24,7 @@ const App = () => {
 
       <div className="content-page">
         <Sidebar />
-        <AppRouter />
+        {inited && <AppRouter />}
 
       </div>
     </Suspense>
