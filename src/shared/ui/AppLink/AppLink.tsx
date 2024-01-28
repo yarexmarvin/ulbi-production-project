@@ -26,7 +26,7 @@ export const AppLink: FC<AppLinkProps & PropsWithChildren> = memo(({ className, 
       {<IconComponent className={cls.icon} />}
     </div>
     }
-    {!onlyIcon && <div className={cls.text}>
+    {!onlyIcon && <div className={cls.text}>;
       {children}
     </div>}
 

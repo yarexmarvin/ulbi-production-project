@@ -1,5 +1,5 @@
-import { loginInitialState } from 'features/AuthByUserName';
-import { getLoginState } from './getLoginState';
+import { loginInitialState } from 'features/AuthByUserName'
+import { getLoginState } from './getLoginState'
 import { type StateScheme } from 'app/providers/StoreProvider'
 
 describe('getCounter', () => {
