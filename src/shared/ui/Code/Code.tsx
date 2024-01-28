@@ -25,7 +25,7 @@ export function Code (props: PropsWithChildren<CodeProps>) {
       })}
     >
       <Button className={cls.copyBtn} theme={ThemeButton.CLEAR}>
-        <CopyIcon onClick={onCopy} className={cls.copyIcon} />;
+        <CopyIcon onClick={onCopy} className={cls.copyIcon} />
       </Button>
       <code>{text}</code>
     </pre>
