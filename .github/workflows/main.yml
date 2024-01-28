@@ -56,3 +56,6 @@ jobs:
         if: always()
       - name: UI Screenshot testing of the production project
         run: npm run test:ui:ci
+        if: failure()
+      - name: Report
+        run: yarn visual:report
