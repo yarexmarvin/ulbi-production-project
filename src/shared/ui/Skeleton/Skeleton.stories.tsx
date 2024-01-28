@@ -22,12 +22,6 @@ export default {
 type Story = StoryObj<typeof Skeleton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    height: 100,
-    width: 200
-  }
-};
 export const Circle: Story = {
   args: {
     height: 100,
