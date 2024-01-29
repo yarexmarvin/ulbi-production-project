@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './ArticleImage.module.scss';
 import { type ArticleBlockImage } from 'entities/Article/model/types/article';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign } from 'shared/ui/Text';
 
 interface ArticleImageProps {
   className?: string

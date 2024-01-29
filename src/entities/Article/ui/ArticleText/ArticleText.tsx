@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './ArticleText.module.scss';
 import { type ArticleBlockText } from 'entities/Article/model/types/article';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
 
 interface ArticleTextProps {
   className?: string

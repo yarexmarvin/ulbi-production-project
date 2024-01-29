@@ -1,26 +1,29 @@
-import { memo, type PropsWithChildren } from 'react'
+import { memo, type PropsWithChildren } from 'react';
 
-import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import { classNames } from 'shared/lib/classNames'
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import { classNames } from 'shared/lib/classNames';
 
-import LightIcon from 'shared/assets/icons/theme-light.svg'
-import DarkIcon from 'shared/assets/icons/theme-dark.svg'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import LightIcon from 'shared/assets/icons/theme-light.svg';
+import DarkIcon from 'shared/assets/icons/theme-dark.svg';
+import { Button, ThemeButton } from 'shared/ui/Button';
 
 interface ThemeSwitcherProps {
   className?: string
 }
 
-export const ThemeSwitcher = memo((props: PropsWithChildren<ThemeSwitcherProps>) => {
-  const { className } = props
-  const { theme, toggleTheme } = useTheme()
+export const ThemeSwitcher = memo(
+  (props: PropsWithChildren<ThemeSwitcherProps>) => {
+    const { className } = props;
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Button className={classNames({ cls: '', additional: [className] })} onClick={toggleTheme}
-      theme={ThemeButton.CLEAR}
-    >
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-    </Button>
-
-  )
-})
+    return (
+      <Button
+        className={classNames({ cls: '', additional: [className] })}
+        onClick={toggleTheme}
+        theme={ThemeButton.CLEAR}
+      >
+        {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+      </Button>
+    );
+  }
+);
