@@ -1,11 +1,7 @@
 import { useCallback, useEffect, type PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './ArticleDetails.module.scss';
-import {
-  DynamicModuleLoader,
-  type ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
 import { useSelector } from 'react-redux';
@@ -48,10 +44,6 @@ export const ArticleDetails = (
   useEffect(() => {
     dispatch(fetchArticleById(id));
   }, [dispatch, id]);
-
-  const dynamicReducers: ReducersList = {
-    articleDetails: { reducer: articleDetailsReducer, removeAfterUnmount: true }
-  };
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
@@ -117,16 +109,14 @@ export const ArticleDetails = (
   };
 
   return (
-    <DynamicModuleLoader dynamicReducers={dynamicReducers}>
-      <div
-        className={classNames({
-          cls: cls.ArticleDetails,
-          mods: {},
-          additional: [className]
-        })}
-      >
-        {getContent()}
-      </div>
-    </DynamicModuleLoader>
+    <div
+      className={classNames({
+        cls: cls.ArticleDetails,
+        mods: {},
+        additional: [className]
+      })}
+    >
+      {getContent()}
+    </div>
   );
 };

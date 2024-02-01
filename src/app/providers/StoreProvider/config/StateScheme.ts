@@ -1,4 +1,8 @@
-import { type ThunkDispatch, type EnhancedStore, type AnyAction } from '@reduxjs/toolkit';
+import {
+  type ThunkDispatch,
+  type EnhancedStore,
+  type AnyAction
+} from '@reduxjs/toolkit';
 import { type ReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { type RootReducer } from 'app/providers/StoreProvider/config/store';
 import { type AxiosInstance } from 'axios';
@@ -7,6 +11,7 @@ import { type CounterScheme } from 'entities/Counter';
 import { type ProfileSchema } from 'entities/Profile';
 import { type UserScheme } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUserName';
+import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { type NavigateOptions, type To } from 'react-router-dom';
 
 export interface StateScheme {
@@ -16,11 +21,12 @@ export interface StateScheme {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
-console.log('')
+console.log('');
 
-export type StateSchemaKey = keyof StateScheme
+export type StateSchemaKey = keyof StateScheme;
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateScheme> {
   reducerManager?: ReducerManager

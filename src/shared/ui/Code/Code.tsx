@@ -17,9 +17,9 @@ export function Code (props: PropsWithChildren<CodeProps>) {
   }, [text]);
 
   return (
-    <pre
+    <div
       className={classNames({
-        cls: cls.Code,
+        cls: cls.CodeWrapper,
         mods: {},
         additional: [className]
       })}
@@ -27,7 +27,9 @@ export function Code (props: PropsWithChildren<CodeProps>) {
       <Button className={cls.copyBtn} theme={ThemeButton.CLEAR}>
         <CopyIcon onClick={onCopy} className={cls.copyIcon} />
       </Button>
-      <code>{text}</code>
-    </pre>
+      <pre className={cls.Code}>
+        <code>{text}</code>
+      </pre>
+    </div>
   );
 }
