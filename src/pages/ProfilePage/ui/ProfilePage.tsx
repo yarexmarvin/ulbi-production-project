@@ -24,6 +24,8 @@ import { getProfileValidationErrors } from 'entities/Profile/models/selector/get
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ValidationErrors } from 'entities/Profile/models/types/profile';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/hook/useInitialEffect';
 
 const ProfilePage = () => {
   const { t } = useTranslation('profile');
@@ -41,19 +43,19 @@ const ProfilePage = () => {
   const readOnly = useSelector(getProfileReadOnly);
   const validationErrors = useSelector(getProfileValidationErrors);
 
+  const { id } = useParams();
+
   const getProfileInfo = useCallback(async () => {
     try {
-      await dispatch(fetchProfileData());
+      await dispatch(fetchProfileData(id));
     } catch (error) {
       console.warn('error in getProfileData', error);
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      getProfileInfo();
-    }
-  }, [getProfileInfo]);
+  useInitialEffect(() => {
+    getProfileInfo();
+  });
 
   const dynamicReducers: ReducersList = {
     profile: { reducer: profileReducer, removeAfterUnmount: true }

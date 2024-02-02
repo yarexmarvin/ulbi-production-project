@@ -1,5 +1,5 @@
 import { getProfileData } from './getProfileData';
-import { type StateScheme } from 'app/providers/StoreProvider'
+import { type StateScheme } from 'app/providers/StoreProvider';
 import { COUNTRY } from 'entities/Country';
 import { CURRENCY } from 'entities/Currency';
 import { type Profile } from 'entities/Profile/models/types/profile';
@@ -13,8 +13,9 @@ describe('getProfileData', () => {
       country: COUNTRY.Russia,
       currency: CURRENCY.RUB,
       avatar: '',
-      username: 'admin'
-    }
+      username: 'admin',
+      id: '1'
+    };
 
     const state: Pick<StateScheme, 'profile'> = {
       profile: {
@@ -25,8 +26,8 @@ describe('getProfileData', () => {
         readonly: true,
         validateErrors: []
       }
-    }
+    };
 
-    expect(getProfileData(state as StateScheme)).toEqual(defaultData)
-  })
-})
+    expect(getProfileData(state as StateScheme)).toEqual(defaultData);
+  });
+});

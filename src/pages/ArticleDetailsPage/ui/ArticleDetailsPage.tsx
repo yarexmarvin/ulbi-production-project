@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import { useCallback, type PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetails } from 'entities/Article';
@@ -20,13 +20,18 @@ import { getArticleDetailsCommentsIsLoading } from 'pages/ArticleDetailsPage/mod
 import { useInitialEffect } from 'shared/hook/useInitialEffect';
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 
+// nested DynamicModuleLoader does not work
 const dynamicReducers: ReducersList = {
   articleDetailsComments: {
     reducer: articleDetailsCommentsReducer,
     removeAfterUnmount: true
   },
-  articleDetails: { reducer: articleDetailsReducer, removeAfterUnmount: true }
+  articleDetails: { reducer: articleDetailsReducer, removeAfterUnmount: true },
+  addCommentForm: { reducer: addCommentFormReducer, removeAfterUnmount: true }
 };
 interface ArticleDetailsPageProps {
   className?: string
@@ -47,6 +52,13 @@ export default function ArticleDetailsPage (
 
   const comments = useSelector(getArticleComments.selectAll);
   const isLoadingComments = useSelector(getArticleDetailsCommentsIsLoading);
+
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
 
   if (!id) {
     return (
@@ -73,6 +85,7 @@ export default function ArticleDetailsPage (
       >
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title="Комментарии" />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoadingComments} />
       </div>
     </DynamicModuleLoader>

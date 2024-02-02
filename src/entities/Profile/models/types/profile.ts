@@ -1,5 +1,5 @@
-import { type COUNTRY } from 'entities/Country'
-import { type CURRENCY } from 'entities/Currency'
+import { type COUNTRY } from 'entities/Country';
+import { type CURRENCY } from 'entities/Currency';
 
 export interface Profile {
   firstname: string
@@ -9,6 +9,7 @@ export interface Profile {
   country: COUNTRY
   username: string
   avatar: string
+  id: string
 }
 
 export interface ProfileSchema {
@@ -23,5 +24,5 @@ export interface ProfileSchema {
 export enum ValidationErrors {
   NO_DATA = 'NO_DATA',
   INCORRECTED_NAME = 'INCORRECTED_NAME',
-  INCORRECTED_AGE = 'INCORRECTED_AGE',
+  INCORRECTED_AGE = 'INCORRECTED_AGE'
 }

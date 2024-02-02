@@ -102,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "test comment",
+      "id": "QIKVk6d"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "еуыыыы",
+      "id": "VkOik74"
     }
   ],
   "users": [
@@ -110,15 +122,34 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/1904927/pub_65047ec69294717f1fdf0134_65047f606ea98747314210f7/scale_1200"
+    },
+    {
+      "id": "3",
+      "username": "user",
+      "password": "123",
+      "avatar": "https://uprostim.com/wp-content/uploads/2021/05/image032-6.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Name1",
-    "lastname": "Name",
-    "age": 21,
-    "currency": "RUB",
-    "country": "Russia",
-    "username": "admin",
-    "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/1904927/pub_65047ec69294717f1fdf0134_65047f606ea98747314210f7/scale_1200"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Name1",
+      "lastname": "Name",
+      "age": 21,
+      "currency": "RUB",
+      "country": "Italy",
+      "username": "admin",
+      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/1904927/pub_65047ec69294717f1fdf0134_65047f606ea98747314210f7/scale_1200"
+    },
+    {
+      "id": "3",
+      "firstname": "Name3",
+      "lastname": "Nam3",
+      "age": 23,
+      "currency": "USD",
+      "country": "USA",
+      "username": "user",
+      "avatar": "https://uprostim.com/wp-content/uploads/2021/05/image032-6.jpg"
+    }
+  ]
 }

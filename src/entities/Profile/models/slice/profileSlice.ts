@@ -1,8 +1,12 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { fetchProfileData } from 'entities/Profile/models/service/fetchProfileData/fetchProfileData'
-import { updateProfileData } from 'entities/Profile/models/service/updateProfileData/updateProfileData'
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { fetchProfileData } from 'entities/Profile/models/service/fetchProfileData/fetchProfileData';
+import { updateProfileData } from 'entities/Profile/models/service/updateProfileData/updateProfileData';
 
-import { type ValidationErrors, type Profile, type ProfileSchema } from 'entities/Profile/models/types/profile'
+import {
+  type ValidationErrors,
+  type Profile,
+  type ProfileSchema
+} from 'entities/Profile/models/types/profile';
 
 const initialState: ProfileSchema = {
   isLoading: false,
@@ -11,69 +15,78 @@ const initialState: ProfileSchema = {
   error: null,
   readonly: true,
   validateErrors: []
-
-}
+};
 
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
     setReadOnly: (state, { payload }: PayloadAction<boolean>) => {
-      state.readonly = payload
+      state.readonly = payload;
     },
     cancelEdit: (state) => {
       state.readonly = true;
-      state.form = state.data
+      state.form = state.data;
     },
     updateProfile: (state, { payload }: PayloadAction<Partial<Profile>>) => {
       state.form = {
         ...state.form,
         ...payload
-      }
+      };
     },
-    setValidationErrors: (state, { payload }: PayloadAction<ValidationErrors[]>) => {
-      state.validateErrors = payload
+    setValidationErrors: (
+      state,
+      { payload }: PayloadAction<ValidationErrors[]>
+    ) => {
+      state.validateErrors = payload;
     }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
-        state.data = payload
-        state.form = payload
-        state.isLoading = false
-      })
+      .addCase(
+        fetchProfileData.fulfilled,
+        (state, { payload }: PayloadAction<Profile>) => {
+          state.data = payload;
+          state.form = payload;
+          state.isLoading = false;
+        }
+      )
       .addCase(fetchProfileData.rejected, (state, { payload }) => {
-        state.data = null
-        state.form = null
-        state.error = payload
-        state.isLoading = false
+        state.data = null;
+        state.form = null;
+        state.error = payload;
+        state.isLoading = false;
       })
       .addCase(fetchProfileData.pending, (state) => {
-        state.error = ''
-        state.isLoading = true
+        state.error = '';
+        state.isLoading = true;
       })
-      .addCase(updateProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
-        state.data = payload
-        state.form = payload
-        state.readonly = true
-        state.isLoading = false
-        state.validateErrors = []
-      })
+      .addCase(
+        updateProfileData.fulfilled,
+        (state, { payload }: PayloadAction<Profile>) => {
+          state.data = payload;
+          state.form = payload;
+          state.readonly = true;
+          state.isLoading = false;
+          state.validateErrors = [];
+        }
+      )
       .addCase(updateProfileData.rejected, (state, { payload }) => {
         if (typeof payload === 'string') {
-          state.error = payload
+          state.error = payload;
         }
         if (Array.isArray(payload)) {
-          state.validateErrors = payload
+          state.validateErrors = payload;
         }
-        state.isLoading = false
+        state.isLoading = false;
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = ''
-        state.isLoading = true
-      })
+        state.error = '';
+        state.isLoading = true;
+      });
   }
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { actions: profileActions, reducer: profileReducer } = profileSlice
+export const { actions: profileActions, reducer: profileReducer } =
+  profileSlice;

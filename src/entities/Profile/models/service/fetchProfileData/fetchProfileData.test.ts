@@ -13,27 +13,28 @@ const data: Profile = {
   country: COUNTRY.Russia,
   currency: CURRENCY.RUB,
   avatar: '',
-  username: 'admin'
-}
+  username: 'admin',
+  id: '1'
+};
 
 describe('fetchProfileData', () => {
   it('should successfully fetch profile data', async () => {
-    const thunk = new TestAsyncThunk(fetchProfileData)
-    thunk.api.get.mockReturnValue(Promise.resolve({ data }))
-    const result = await thunk.callThunk()
+    const thunk = new TestAsyncThunk(fetchProfileData);
+    thunk.api.get.mockReturnValue(Promise.resolve({ data }));
+    const result = await thunk.callThunk('1');
 
-    expect(thunk.api.get).toHaveBeenCalled()
-    expect(result.meta.requestStatus).toStrictEqual('fulfilled')
-    expect(result.payload).toEqual(data)
-  })
+    expect(thunk.api.get).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toStrictEqual('fulfilled');
+    expect(result.payload).toEqual(data);
+  });
 
   it('should reject fetching profile data', async () => {
-    const thunk = new TestAsyncThunk(fetchProfileData)
-    thunk.api.get.mockRejectedValue(Promise.resolve({ status: 403 }))
-    const result = await thunk.callThunk()
+    const thunk = new TestAsyncThunk(fetchProfileData);
+    thunk.api.get.mockRejectedValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk('1');
 
-    expect(thunk.api.get).toHaveBeenCalled()
-    expect(result.meta.requestStatus).toStrictEqual('rejected')
-    expect(result.payload).toBeUndefined()
-  })
-})
+    expect(thunk.api.get).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toStrictEqual('rejected');
+    expect(result.payload).toBeUndefined();
+  });
+});

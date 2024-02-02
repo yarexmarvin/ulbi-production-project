@@ -1,13 +1,13 @@
-import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import ThemeDecorator from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-import { Theme } from 'app/providers/ThemeProvider'
-import AvatarPng from 'shared/ui/Avatar/scale_1200.jpeg'
+import { Theme } from 'app/providers/ThemeProvider';
+import AvatarPng from 'shared/ui/Avatar/scale_1200.jpeg';
 
-import { type StoryObj } from '@storybook/react'
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
-import { COUNTRY } from 'entities/Country'
-import { CURRENCY } from 'entities/Currency'
-import { type Profile } from 'entities/Profile/models/types/profile'
+import { type StoryObj } from '@storybook/react';
+import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
+import { COUNTRY } from 'entities/Country';
+import { CURRENCY } from 'entities/Currency';
+import { type Profile } from 'entities/Profile/models/types/profile';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: 'entities/ProfileCard',
@@ -22,9 +22,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-}
+};
 
-type Story = StoryObj<typeof ProfileCard>
+type Story = StoryObj<typeof ProfileCard>;
 
 const defaultData: Profile = {
   firstname: 'Name',
@@ -33,8 +33,9 @@ const defaultData: Profile = {
   country: COUNTRY.Russia,
   currency: CURRENCY.RUB,
   avatar: AvatarPng,
-  username: 'admin'
-}
+  username: 'admin',
+  id: '1'
+};
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Light = {
@@ -42,7 +43,7 @@ export const Light = {
     data: defaultData
   },
   decorators: [ThemeDecorator(Theme.LIGHT)]
-}
+};
 
 export const ReadOnly = {
   args: {
@@ -50,7 +51,7 @@ export const ReadOnly = {
     readOnly: true
   },
   decorators: [ThemeDecorator(Theme.LIGHT)]
-}
+};
 
 export const Error = {
   args: {
@@ -59,7 +60,7 @@ export const Error = {
     error: 'Default Error'
   },
   decorators: [ThemeDecorator(Theme.LIGHT)]
-}
+};
 
 export const Loading = {
   args: {
@@ -69,11 +70,11 @@ export const Loading = {
     isLoading: true
   },
   decorators: [ThemeDecorator(Theme.LIGHT)]
-}
+};
 
 export const Dark: Story = {
   args: {
     data: defaultData
   },
   decorators: [ThemeDecorator(Theme.DARK)]
-}
+};
