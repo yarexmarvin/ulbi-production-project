@@ -5,7 +5,6 @@ import { Input } from 'shared/ui/Input';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import {
-  getAddCommentError,
   getAddCommentIsLoading,
   getAddCommentText
 } from 'features/AddCommentForm/model/selectors/getAddCommentState';
@@ -25,7 +24,7 @@ const AddCommentForm = (props: PropsWithChildren<AddCommentFormProps>) => {
   const { t } = useTranslation();
 
   const text = useSelector(getAddCommentText);
-  const error = useSelector(getAddCommentError);
+  // const error = useSelector(getAddCommentError);
   const isLoading = useSelector(getAddCommentIsLoading);
 
   const dispatch = useAppDispatch();

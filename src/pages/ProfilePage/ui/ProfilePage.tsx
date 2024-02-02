@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './ProfilePage.module.scss';
 import {

@@ -1,4 +1,4 @@
-import { useCallback, type PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import cls from './CommentList.module.scss';
 import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard';
